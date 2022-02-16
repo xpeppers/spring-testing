@@ -11,11 +11,10 @@ import example.person.PersonRepository;
 import example.weather.WeatherClient;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 import java.util.Optional;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -29,13 +28,10 @@ import static org.mockito.Mockito.when;
 @PactFolder("target/pacts") // tells pact where to load the pact files from
 public class ExampleProviderTest {
 
-    @Mock
-    private PersonRepository personRepository;
+    private PersonRepository personRepository = mock(PersonRepository.class);
 
-    @Mock
-    private WeatherClient weatherClient;
+    private WeatherClient weatherClient = mock(WeatherClient.class);
 
-    @InjectMocks
     private ExampleController exampleController;
 
     @TestTarget

@@ -2,13 +2,14 @@ package example;
 
 import example.person.Person;
 import example.person.PersonRepository;
-import example.weather.WeatherResponse;
 import example.weather.WeatherClient;
+import example.weather.WeatherResponse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
@@ -19,10 +20,8 @@ import static org.mockito.BDDMockito.anyString;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
+@RunWith(MockitoJUnitRunner.class)
 public class ExampleControllerTest {
-
-    @InjectMocks
-    private ExampleController subject;
 
     @Mock
     private PersonRepository personRepository;
@@ -30,6 +29,7 @@ public class ExampleControllerTest {
     @Mock
     private WeatherClient weatherClient;
 
+    private ExampleController subject;
 
     @Before
     public void setUp() throws Exception {
