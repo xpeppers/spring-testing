@@ -14,7 +14,6 @@ public class ExampleController {
     private final PersonRepository personRepository;
     private final WeatherClient weatherClient;
 
-    @Autowired
     public ExampleController(final PersonRepository personRepository, final WeatherClient weatherClient) {
         this.personRepository = personRepository;
         this.weatherClient = weatherClient;
