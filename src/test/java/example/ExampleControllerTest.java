@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -29,12 +30,8 @@ public class ExampleControllerTest {
     @Mock
     private WeatherClient weatherClient;
 
+    @InjectMocks
     private ExampleController subject;
-
-    @Before
-    public void setUp() throws Exception {
-        subject = new ExampleController(personRepository, weatherClient);
-    }
 
     @Test
     public void shouldReturnHelloWorld() throws Exception {
