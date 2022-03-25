@@ -9,13 +9,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class PersonRepositoryIntegrationTest {
-
+public class DataJpaWithH2PersonRepositoryIntegrationTest {
     @Autowired
     private PersonRepository subject;
 
@@ -31,6 +29,6 @@ public class PersonRepositoryIntegrationTest {
 
         var maybePeter = subject.findByLastName("Pan");
 
-        assertThat(maybePeter, is(Optional.of(peter)));
+        assertThat(maybePeter).isEqualTo(Optional.of(peter));
     }
 }
