@@ -29,6 +29,7 @@ dependencies {
 	testImplementation('au.com.dius:pact-jvm-consumer-junit:4.0.10')
 	testImplementation('au.com.dius:pact-jvm-provider-spring:4.0.10')
 	testImplementation('io.github.bonigarcia:webdrivermanager:5.0.3')
+	testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.16.3'
 }
 
 test {
