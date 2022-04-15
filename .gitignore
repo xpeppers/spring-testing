@@ -26,6 +26,7 @@ nbdist/
 out/
 
 .env
+.env.test
 gocd/server/ssh/**
 !gocd/server/ssh/put-ssh-keys-here
 .vagrant/

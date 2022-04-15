@@ -1,5 +1,7 @@
 package example.weather;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
@@ -9,6 +11,7 @@ import java.util.Optional;
 
 @Component
 public class WeatherClient {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static final String CITY = "Hamburg,de";
     private final RestTemplate restTemplate;
@@ -29,6 +32,7 @@ public class WeatherClient {
         try {
             return Optional.ofNullable(restTemplate.getForObject(url, WeatherResponse.class));
         } catch (RestClientException e) {
+            logger.error("Couldn't invoke Weather service", e);
             return Optional.empty();
         }
     }
